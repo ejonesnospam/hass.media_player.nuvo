@@ -1,3 +1,4 @@
+"""Support for interfacing with Nuvo Multi-Zone Amplifier via serial/RS-232."""
 
 import logging
 
@@ -10,14 +11,12 @@ from homeassistant.components.media_player import (
     SUPPORT_VOLUME_STEP, MediaPlayerDevice)
 from homeassistant.const import (
     ATTR_ENTITY_ID, CONF_NAME, CONF_PORT, STATE_OFF, STATE_ON)
-from homeassistant.core import callback
 import homeassistant.helpers.config_validation as cv
 
 # Home Assistant depends on 3rd party packages for API specific code.
-REQUIREMENTS = ['pynuvo==0.1']
+REQUIREMENTS = ['pynuvo==0.2']
 
 _LOGGER = logging.getLogger(__name__)
-#logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 
 SUPPORT_NUVO = SUPPORT_VOLUME_MUTE | SUPPORT_VOLUME_SET | \
                     SUPPORT_VOLUME_STEP | SUPPORT_TURN_ON | \
@@ -96,20 +95,6 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
 
     hass.services.register(
         DOMAIN, SERVICE_RESTORE, service_handle, schema=MEDIA_PLAYER_SCHEMA)
-
-
-
-def async_trigger(vars, boolMaybe):
-    """ Incoming Message Listener """
-    _LOGGER.debug("Async Trigger: %s", vars)
- 
-
-callback
-def async_trigger_service_handler(service_call):
-    """Handle automation trigger service calls."""
-    vars = service_call.data.get(ATTR_VARIABLES)
-    for entity in component.async_extract_from_service(service_call):
-        hass.loop.create_task(entity.async_trigger(vars, True))
 
 
 class NuvoZone(MediaPlayerDevice):
@@ -235,5 +220,3 @@ class NuvoZone(MediaPlayerDevice):
         if self._volume is None:
             return
         self._nuvo.set_volume(self._zone_id, max(self._volume - 1, -78))
-
-
