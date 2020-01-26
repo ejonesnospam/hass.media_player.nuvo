@@ -1,7 +1,7 @@
 {
   "domain": "nuvo",
   "name": "Nuvo",
-  "documentation": "https://www.home-assistant.io/integrations/nuvo",
+  "documentation": "https://github.com/ejonesnospam/hass.media_player.nuvo",
   "requirements": [
     "pynuvo==0.2"
   ],
