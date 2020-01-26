@@ -1,0 +1,12 @@
+{
+  "domain": "nuvo",
+  "name": "Nuvo",
+  "documentation": "https://www.home-assistant.io/integrations/nuvo",
+  "requirements": [
+    "pynuvo==0.2"
+  ],
+  "dependencies": [],
+  "codeowners": [
+    "ejonesnospam"
+  ]
+}
