@@ -1,7 +1,11 @@
 # hass.media_player.nuvo
 Home Assistant - media player - Nuvo multi zone audio amplifier
+The nuvo platform allows you to control Nuvo Multi-Zone Amplifier using a serial connection.
+
 
 - Tested and verified using Home Assistant 0.103.6
+- Initially developed/tested with older Concerto model (*** Should/could also work with any Nuvo amp, via RS-232 serial, such NV-E6D)
+
 
 
 media_player:
