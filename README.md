@@ -11,7 +11,7 @@ Creates audio media_player units, with sources as defined, for each audio zone d
 To get started download
 ```
 /custom_components/nuvo/manifest.json
-/custom_components/nuvo/smedia_player.py
+/custom_components/nuvo/media_player.py
 ```
 into
 ```
